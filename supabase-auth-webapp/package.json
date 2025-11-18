@@ -1,0 +1,23 @@
+{
+  "name": "supabase-auth-webapp",
+  "version": "1.0.0",
+  "description": "A simple web application with login and registration panels managed by Supabase. Pure vanilla JavaScript, HTML and CSS - No dependencies.",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080 --directory public",
+    "build": "rm -rf public/* && cp -R src/* public/ || true",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "supabase",
+    "authentication",
+    "webapp",
+    "javascript",
+    "html",
+    "css",
+    "vanilla",
+    "no-dependencies"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

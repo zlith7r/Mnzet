@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Auth Web App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-container" id="welcome-container">
+        <div class="welcome-content">
+            <h1 class="welcome-title">lorem ipsum </h1>
+            <p class="welcome-subtitle">lorem ipsum</p>
+            <p class="welcome-description">
+                lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="welcome-buttons">
+                <button class="btn btn-primary" id="btn-login">Iniciar Sesión</button>
+                <button class="btn btn-secondary" id="btn-register">Registrarse</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Panel -->
+    <div class="auth-container" id="login-container" style="display: none;">
+        <button class="btn-back" id="back-from-login">← Volver</button>
+        <div class="auth-panel">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Ingresar</button>
+                <p class="form-text">¿No tienes cuenta? <span class="link" id="go-to-register">Regístrate aquí</span></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Panel -->
+    <div class="auth-container" id="register-container" style="display: none;">
+        <button class="btn-back" id="back-from-register">← Volver</button>
+        <div class="auth-panel">
+            <h2>Registrarse</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <input type="text" id="register-fullname" placeholder="Nombre Completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="register-email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="register-phone" placeholder="Número de Teléfono" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="register-password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Crear Cuenta</button>
+                <p class="form-text">¿Ya tienes cuenta? <span class="link" id="go-to-login">Inicia sesión aquí</span></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Main Menu -->
+    <div class="dashboard-container" id="dashboard-container" style="display: none;">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Lorem Ipsum</h1>
+            <button class="btn btn-logout" id="logout-btn">Cerrar Sesión</button>
+        </div>
+        
+        <div class="menu-options-container">
+            <button class="menu-option" id="option-lorem-1">Lorem Ipsum 1</button>
+            <button class="menu-option" id="option-lorem-2">Proximamente</button>
+            <button class="menu-option" id="option-faq">FAQ</button>
+        </div>
+    </div>
+
+    <!-- Social Media Panel -->
+    <div class="social-panel-container" id="social-panel-container" style="display: none;">
+        <button class="btn-back-panel" id="back-from-social">← Volver al Menú</button>
+        <h1 class="social-panel-title">Lorem Ipsum</h1>
+        
+        <div class="social-icons-container">
+            <div class="social-icon-box instagram">
+                <svg viewBox="0 0 24 24" class="social-icon">
+                    <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                </svg>
+                <div class="icon-bar" aria-hidden="true">
+                    <input class="icon-input" type="text" placeholder="Escribe..." aria-label="Entrada Instagram">
+                </div>
+            </div>
+
+            <div class="social-icon-box x">
+                <svg viewBox="0 0 24 24" class="social-icon">
+                    <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.694-5.834 6.694H2.562l7.746-8.868-8.177-10.632h6.635l4.612 6.096L17.414 2.25h.83zm-1.166 17.852h1.828L7.884 4.122H6.117l10.961 16.08z"/>
+                </svg>
+                <div class="icon-bar" aria-hidden="true">
+                    <input class="icon-input" type="text" placeholder="Escribe..." aria-label="Entrada X">
+                </div>
+            </div>
+
+            <div class="social-icon-box tiktok">
+                <svg viewBox="0 0 24 24" class="social-icon">
+                    <path fill="currentColor" d="M19.498 3.087H15.5V11.5c0 .816-.643 1.459-1.459 1.459-.816 0-1.459-.643-1.459-1.459V3.087H9.084v8.413c0 2.453 2.026 4.479 4.479 4.479 2.453 0 4.479-2.026 4.479-4.479V3.087zM6.913 3.087H5.583v9.743c0 1.378-1.115 2.494-2.494 2.494-1.378 0-2.494-1.115-2.494-2.494V3.087H0v9.743C0 15.738 1.262 17 2.989 17c1.728 0 2.989-1.262 2.989-2.989V3.087"/>
+                </svg>
+                <div class="icon-bar" aria-hidden="true">
+                    <input class="icon-input" type="text" placeholder="Escribe..." aria-label="Entrada TikTok">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Panel -->
+    <div class="coming-soon-container" id="coming-soon-container" style="display: none;">
+        <button class="btn-back" id="back-from-coming">← Volver</button>
+        <div class="coming-soon-content">
+            <h1 class="coming-soon-title">Proximamente</h1>
+            <p class="coming-soon-sub">Estamos trabajando en esto. Vuelve pronto ✨</p>
+        </div>
+    </div>
+
+    <!-- FAQ Panel -->
+    <div class="faq-container" id="faq-container" style="display: none;">
+        <button class="btn-back" id="back-from-faq">← Volver</button>
+        <div class="faq-panel">
+            <h1 class="faq-title">Preguntas Frecuentes & Mejora</h1>
+
+            <div class="faq-list">
+                <div class="faq-item" data-question-id="1">
+                    <h3 class="faq-question">¿Cómo puedo mejorar la seguridad de mi cuenta?</h3>
+                    <p class="faq-answer">Activa la verificación en dos pasos y usa contraseñas únicas y robustas.</p>
+                    <div class="comments" id="comments-1"></div>
+                    <form class="comment-form" data-question-id="1">
+                        <input type="email" name="comment-email" class="comment-email" placeholder="Tu email (opcional)" />
+                        <textarea name="comment-content" class="comment-content" rows="2" placeholder="Deja un comentario o sugerencia..."></textarea>
+                        <button type="submit" class="btn btn-primary btn-comment">Enviar comentario</button>
+                    </form>
+                </div>
+
+                <div class="faq-item" data-question-id="2">
+                    <h3 class="faq-question">¿Cómo reporto un error o sugiero una mejora?</h3>
+                    <p class="faq-answer">Usa el formulario abajo para dejar tu comentario; nuestro equipo lo revisará.</p>
+                    <div class="comments" id="comments-2"></div>
+                    <form class="comment-form" data-question-id="2">
+                        <input type="email" name="comment-email" class="comment-email" placeholder="Tu email (opcional)" />
+                        <textarea name="comment-content" class="comment-content" rows="2" placeholder="Describe el problema o sugerencia..."></textarea>
+                        <button type="submit" class="btn btn-primary btn-comment">Enviar comentario</button>
+                    </form>
+                </div>
+
+                <div class="faq-item" data-question-id="3">
+                    <h3 class="faq-question">¿Qué planes de pago estarán disponibles?</h3>
+                    <p class="faq-answer">Por ahora estamos en versión gratuita. Planeamos añadir planes Pro y Empresa.</p>
+                    <div class="comments" id="comments-3"></div>
+                    <form class="comment-form" data-question-id="3">
+                        <input type="email" name="comment-email" class="comment-email" placeholder="Tu email (opcional)" />
+                        <textarea name="comment-content" class="comment-content" rows="2" placeholder="¿Qué opciones te gustaría ver?..."></textarea>
+                        <button type="submit" class="btn btn-primary btn-comment">Enviar comentario</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verification Modal -->
+    <div class="verification-modal" id="verification-modal" style="display: none;">
+        <div class="verification-content">
+            <h2>Verificación Requerida</h2>
+            <p>Hemos enviado un código de verificación a tu email y SMS</p>
+            
+            <div class="verification-tabs">
+                <button class="verification-tab active" data-tab="email">Verificar Email</button>
+                <button class="verification-tab" data-tab="phone">Verificar Teléfono</button>
+            </div>
+
+            <div class="verification-tab-content active" id="email-tab">
+                <div class="form-group">
+                    <input type="text" id="email-code" placeholder="Código de Email (6 dígitos)" maxlength="6" required>
+                </div>
+                <button type="button" class="btn btn-primary" id="verify-email-btn">Verificar Email</button>
+            </div>
+
+            <div class="verification-tab-content" id="phone-tab">
+                <div class="form-group">
+                    <input type="text" id="phone-code" placeholder="Código SMS (6 dígitos)" maxlength="6" required>
+                </div>
+                <button type="button" class="btn btn-primary" id="verify-phone-btn">Verificar Teléfono</button>
+            </div>
+
+            <p class="verification-status" id="verification-status"></p>
+            <button type="button" class="btn btn-secondary" id="skip-verification">Más Tarde</button>
+        </div>
+    </div>
+
+    <script src="js/supabaseClient.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
